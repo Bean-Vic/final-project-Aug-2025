@@ -1,6 +1,165 @@
-# Getting Started with Create React App
+# Project: DevExplorer – GitHub Profile & Repo Viewer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🕹️ Summary:
+
+Create a single-page application (SPA) that allows users to search for a GitHub user and view:
+
+- Their basic profile
+- A paginated list of their repositories
+- Repository details
+
+This will involve:
+
+- Routing (`React Router`)
+- State management (`Redux`)
+- Side-effects/API calls (`Redux-Saga`)
+- Testing (`Jest`)
+- Optional: GraphQL version using GitHub's GraphQL API
+
+## 🧱 **Project Structure**
+
+Pages (Routing):
+
+- `/` → Search page
+- `/profile/:username` → User profile + repo list
+- `/profile/:username/repo/:reponame` → Repo detail
+
+Redux State Example:
+
+```jsx
+{
+  user: {
+    profile: {},
+    repos: [],
+    repoDetails: {},
+  },
+  loading: false,
+  error: null
+}
+
+```
+
+## 📡 API Details
+
+### ✅ GitHub REST API
+
+- `https://api.github.com/users/{username}`
+- `https://api.github.com/users/{username}/repos`
+- `https://api.github.com/repos/{username}/{repo}`
+
+OR
+
+### 🧬 GitHub GraphQL (Optional Advanced Mode)
+
+- Endpoint: `https://api.github.com/graphql`
+- You’ll need a personal access token, or mock it for offline development.
+- Documentation: [https://docs.github.com/en/graphql](https://docs.github.com/en/graphql)
+
+## 🧠Feature List
+
+### 1. Search GitHub User
+
+- Input a username
+- Navigate to `/profile/:username` on submit
+
+### 2. Display GitHub User Info
+
+- Name, avatar, followers, bio, etc.
+- Fetch with Redux-Saga and store in Redux
+
+### 3. Display Repository List
+
+- List repo names, stars, and languages
+- Paginated or infinite scroll
+
+### 4. View Repo Details
+
+- Click a repo to navigate to `/profile/:username/repo/:reponame`
+- Show full description, forks, issues, etc.
+
+## 🧪 **Testing (Jest)**
+
+Write unit tests for:
+
+- Components: SearchBar, ProfileCard, RepoList, RepoDetail
+- Reducers
+- Sagas (use `redux-saga-test-plan`)
+- Routing (basic coverage using  `react-testing-library`)
+
+## Reference for project structure:
+
+```php
+src/
+├── components/
+│   ├── SearchBar.jsx
+│   ├── UserProfile.jsx
+│   ├── RepoList.jsx
+│   ├── RepoCard.jsx
+│   └── RepoDetail.jsx
+│
+├── route/                     # React Router pages
+│   ├── SearchPage.jsx         # Route: /
+│   ├── ProfilePage.jsx        # Route: /profile/:username
+│   └── RepoDetailPage.jsx     # Route: /profile/:username/repo/:reponame
+│
+├── services/                  # API calls to GitHub
+│   └── githubService.js       # Axios or fetch wrappers for GitHub REST/GraphQL
+│
+├── redux/
+│   ├── actions/
+│   │   ├── userActions.js
+│   │   ├── reposActions.js
+│   │   └── repoDetailActions.js
+│   │
+│   ├── creators/
+│   │   ├── userCreators.js
+│   │   ├── reposCreators.js
+│   │   └── repoDetailCreators.js
+│   │
+│   ├── reducers/
+│   │   ├── userReducer.js
+│   │   ├── reposReducer.js
+│   │   ├── repoDetailReducer.js
+│   │   └── rootReducer.js
+│   │
+│   ├── sagas/
+│   │   ├── userSaga.js
+│   │   ├── reposSaga.js
+│   │   ├── repoDetailSaga.js
+│   │   └── rootSaga.js
+│   │
+│   └── store.js
+│
+├── routes/                    # Route definitions and <BrowserRouter>
+│   └── AppRouter.jsx
+│
+├── hooks/                    
+│   └── useSearch.js           # Example hooks for use
+│                  
+│
+├── styles/                    
+│   └── global.scss
+│
+├── tests/
+│   ├── components/
+│   ├── route/
+│   ├── redux/
+│   │   ├── actions/
+│   │   ├── creators/
+│   │   ├── reducers/
+│   │   └── sagas/
+│   │       ├── userSaga.test.js
+│   │       └── reposSaga.test.js
+│
+├── App.jsx
+├── index.jsx
+└── setupTests.js
+
+```
+
+## Reference for Design:
+
+---
 
 ## Available Scripts
 
@@ -18,53 +177,3 @@ You may also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
