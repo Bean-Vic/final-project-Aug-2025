@@ -159,6 +159,12 @@ src/
 
 ## Reference for Design:
 
+![image.png](https://github.com/user-attachments/assets/445020fb-a891-40d0-bc33-84ca4449deb2)
+
+![image.png](https://github.com/user-attachments/assets/b3d45f64-b9cf-4af1-b4e6-931cd39ed2a6)
+
+![image.png](https://github.com/user-attachments/assets/a7300b21-a730-4c8c-a41a-beac9cf22828)
+
 ---
 
 ## Available Scripts
