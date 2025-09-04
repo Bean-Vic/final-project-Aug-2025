@@ -7,25 +7,27 @@ import { FunctionalComponent, ListRenderingExample } from 'src/example/functiona
 import { Base, EnhancedComponent } from 'src/example/hoc-example';
 import { EventHandlingExample, NestedButtons } from "src/example/event-handling";
 import { ControlledComponent, UncontrolledComponent } from "src/example/controlled-uncontrolled-example";
+import { Counter, Timer, Wrapper } from 'src/example/rick-and-morty';
 import { Provider } from 'react-redux';
 import store from 'src/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <React.StrictMode>
-        <Provider store={store}>
-            {/*<Base name="zoey" />*/}
-            {/*<EnhancedComponent name="bean" />*/}
-            {/*<FunctionalComponent bean="bean" shouldUpdate={true} testAttr="123" />*/}
-            {/*<ListRenderingExample />*/}
-            {/*<EventHandlingExample />*/}
-            {/*<NestedButtons />*/}
-            <ControlledComponent />
-            <UncontrolledComponent />
-            {/*<DefaultComponent  />*/}
-            {/*<HelloWorld1 />*/}
-            {/*<StateExample />*/}
-            {/*<App />*/}
-        </Provider>
-    </React.StrictMode>,
+    <Provider store={store}>
+        <Counter />
+        {/*<Timer />*/}
+        <Wrapper />
+        {/*<Base name="zoey" />*/}
+        {/*<EnhancedComponent name="bean" />*/}
+        {/*<FunctionalComponent bean="bean" shouldUpdate={true} testAttr="123" />*/}
+        {/*<ListRenderingExample />*/}
+        {/*<EventHandlingExample />*/}
+        {/*<NestedButtons />*/}
+        {/*<ControlledComponent />*/}
+        {/*<UncontrolledComponent />*/}
+        {/*<DefaultComponent  />*/}
+        {/*<HelloWorld1 />*/}
+        {/*<StateExample />*/}
+        {/*<App />*/}
+    </Provider>,
 );
