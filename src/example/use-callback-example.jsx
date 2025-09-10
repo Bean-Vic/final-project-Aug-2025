@@ -90,25 +90,39 @@ export const CallbackExample = () => {
     );
 };
 
-const Parent = () => {
-    const [state, setState] = useState({});
-    const [counter, setCounter] = useState(0);
-    const callback1 = () => {};
-    const callback2 = () => {};
-    const callback3 = () => {};
-    const callback4 = () => {};
-    const callback5 = () => {};
+// const Parent = () => {
+//     const [state, setState] = useState({});
+//     const [counter, setCounter] = useState(0);
+//     const callback1 = () => {};
+//     const callback2 = () => {};
+//     const callback3 = () => {};
+//     const callback4 = () => {};
+//     const callback5 = () => {};
+//
+//     // internal parent comp logic -> which can trigger re-render
+//
+//     return (
+//         <>
+//             <C1 c1={callback1}/>
+//             <C2 c2={callback2}/>
+//             <C3 c3={callback3}/>
+//             <C4 c4={callback4}/>
+//             <C5 c5={callback5}/>
+//             <div>{state}</div>
+//         </>
+//     )
+// }
 
-    // internal parent comp logic -> which can trigger re-render
-
-    return (
-        <>
-            <C1 c1={callback1}/>
-            <C2 c2={callback2}/>
-            <C3 c3={callback3}/>
-            <C4 c4={callback4}/>
-            <C5 c5={callback5}/>
-            <div>{state}</div>
-        </>
-    )
-}
+// const DATA_SOURCE = []; // assume very large
+//
+// const rule = '';
+//
+// // const filterAndSortedData = DATA_SOURCE.filter().sort();
+//
+//
+// const filteredData = useMemo(() => {
+//     return DATA_SOURCE.filter(rule);
+// }, [DATA_SOURCE, rule]);
+// const sortedData = filteredData.sort();
+//
+// const [sort, setSort] = useState('descending');// desc -> asec
