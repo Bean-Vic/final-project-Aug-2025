@@ -9,7 +9,7 @@ import { EventHandlingExample, NestedButtons } from "src/example/event-handling"
 import { ControlledComponent, UncontrolledComponent } from "src/example/controlled-uncontrolled-example";
 import { Counter, Timer, Wrapper, Test, Test2, RickAndMorty } from 'src/example/rick-and-morty';
 import { CallbackExample } from 'src/example/use-callback-example';
-import { UseRefToAccessDOM, UseRefToStoreTimerID } from 'src/example/use-ref-example';
+import { UseRefToAccessDOM, UseRefToStoreTimerID, DynamicAddElement } from 'src/example/use-ref-example';
 import { Provider } from 'react-redux';
 import store from 'src/store';
 
@@ -19,6 +19,7 @@ root.render(
         <CallbackExample />
         <UseRefToAccessDOM />
         <UseRefToStoreTimerID />
+        <DynamicAddElement />
         {/*<RickAndMorty />*/}
         {/*<Wrapper />*/}
         {/*<Base name="zoey" />*/}
