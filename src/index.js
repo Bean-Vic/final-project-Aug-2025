@@ -10,16 +10,20 @@ import { ControlledComponent, UncontrolledComponent } from "src/example/controll
 import { Counter, Timer, Wrapper, Test, Test2, RickAndMorty } from 'src/example/rick-and-morty';
 import { CallbackExample } from 'src/example/use-callback-example';
 import { UseRefToAccessDOM, UseRefToStoreTimerID, DynamicAddElement } from 'src/example/use-ref-example';
+import { ParentComponent } from "./example/context/provider";
+import { RouterExample } from 'src/example/react-router/RouterExample';
 import { Provider } from 'react-redux';
 import store from 'src/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Provider store={store}>
-        <CallbackExample />
-        <UseRefToAccessDOM />
-        <UseRefToStoreTimerID />
-        <DynamicAddElement />
+        <RouterExample />
+        {/*<ParentComponent />*/}
+        {/*<CallbackExample />*/}
+        {/*<UseRefToAccessDOM />*/}
+        {/*<UseRefToStoreTimerID />*/}
+        {/*<DynamicAddElement />*/}
         {/*<RickAndMorty />*/}
         {/*<Wrapper />*/}
         {/*<Base name="zoey" />*/}

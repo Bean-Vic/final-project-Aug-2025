@@ -6,7 +6,10 @@ import counterReducer, {
 } from 'src/reducers/counterSlice';
 
 describe('counter reducers', () => {
-    it('should return the initial state', () => {
+    beforeEach(() => {
+        console.log('this is beforeEach function');
+    })
+    test('should return the initial state', () => {
         expect(counterReducer(undefined, { type: 'unknown' })).toEqual({
             value: 0,
         });

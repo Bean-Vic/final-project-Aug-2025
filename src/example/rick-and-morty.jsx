@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import { useApi } from "./useApi";
 
 export const Counter = () => {
     const [count, setCount] = useState(5);
@@ -123,9 +124,10 @@ export const RickAndMorty = () => {
     // 3. render current page base on api response
     // 4. Gracefully handle error and loading
     const [characterId, setCharacterId] = useState(1);
-    const [data, setData] = useState({});
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
+    // const [data, setData] = useState({});
+    // const [error, setError] = useState(null);
+    // const [loading, setLoading] = useState(false);
+    const [{ data, error, loading }, { makeApiRequest }] = useApi();
     const handleIncrement = () => {
         !loading && setCharacterId(characterId+1)
     }
@@ -147,29 +149,33 @@ export const RickAndMorty = () => {
     }
 
     useEffect(() => {
-        console.log('Debug: characterId =', characterId);
-
-        const makeApiRequest = async () => {
-                setLoading(true);
-              const url = `https://rickandmortyapi.com/api/character/${characterId}`;
-              try {
-                  const response = await fetch(url);
-                  if (!response.ok) {
-                      throw new Error('Could not fetch character');
-                  }
-                  const result = await response.json();
-                  setData(result);
-                  setError(null);
-                  setLoading(false);
-              } catch (error) {
-                  setError(error);
-                  console.error(error);
-                  setLoading(false);
-              }
-        };
-        makeApiRequest();
-
+        makeApiRequest(characterId);
     }, [characterId]);
+
+    // useEffect(() => {
+    //     console.log('Debug: characterId =', characterId);
+    //
+    //     const makeApiRequest = async () => {
+    //             setLoading(true);
+    //           const url = `https://rickandmortyapi.com/api/character/${characterId}`;
+    //           try {
+    //               const response = await fetch(url);
+    //               if (!response.ok) {
+    //                   throw new Error('Could not fetch character');
+    //               }
+    //               const result = await response.json();
+    //               setData(result);
+    //               setError(null);
+    //               setLoading(false);
+    //           } catch (error) {
+    //               setError(error);
+    //               console.error(error);
+    //               setLoading(false);
+    //           }
+    //     };
+    //     makeApiRequest();
+    //
+    // }, [characterId]);
 
     return (
         <div>
@@ -196,6 +202,11 @@ export const RickAndMorty = () => {
     );
 };
 
+// const [{ TodoList, currentEditItemId, completedList }, { add, delete, edit }] = useTodo();
+//
+// add('test item')
+// delete(id)
+// edit(id, 'edited text')
 
 
 

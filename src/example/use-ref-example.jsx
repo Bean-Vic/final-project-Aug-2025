@@ -8,7 +8,6 @@ export const UseRefToAccessDOM = () => {
         console.log(ref);
         ref.current.value = '';
     }
-    React.createElement()
 
     return (
         <div>
