@@ -14,29 +14,32 @@ import { ParentComponent } from "./example/context/provider";
 import { RouterExample } from 'src/example/react-router/RouterExample';
 import { Provider } from 'react-redux';
 import store from 'src/store';
+import { RickAndMortyReduxContainer } from 'src/example/redux-example/entrance-container';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    <Provider store={store}>
-        <RouterExample />
-        {/*<ParentComponent />*/}
-        {/*<CallbackExample />*/}
-        {/*<UseRefToAccessDOM />*/}
-        {/*<UseRefToStoreTimerID />*/}
-        {/*<DynamicAddElement />*/}
-        {/*<RickAndMorty />*/}
-        {/*<Wrapper />*/}
-        {/*<Base name="zoey" />*/}
-        {/*<EnhancedComponent name="bean" />*/}
-        {/*<FunctionalComponent bean="bean" shouldUpdate={true} testAttr="123" />*/}
-        {/*<ListRenderingExample />*/}
-        {/*<EventHandlingExample />*/}
-        {/*<NestedButtons />*/}
-        {/*<ControlledComponent />*/}
-        {/*<UncontrolledComponent />*/}
-        {/*<DefaultComponent  />*/}
-        {/*<HelloWorld1 />*/}
-        {/*<StateExample />*/}
-        {/*<App />*/}
-    </Provider>,
-);
+// root.render(
+//     <Provider store={store}>
+//         <RouterExample />
+//         {/*<ParentComponent />*/}
+//         {/*<CallbackExample />*/}
+//         {/*<UseRefToAccessDOM />*/}
+//         {/*<UseRefToStoreTimerID />*/}
+//         {/*<DynamicAddElement />*/}
+//         {/*<RickAndMorty />*/}
+//         {/*<Wrapper />*/}
+//         {/*<Base name="zoey" />*/}
+//         {/*<EnhancedComponent name="bean" />*/}
+//         {/*<FunctionalComponent bean="bean" shouldUpdate={true} testAttr="123" />*/}
+//         {/*<ListRenderingExample />*/}
+//         {/*<EventHandlingExample />*/}
+//         {/*<NestedButtons />*/}
+//         {/*<ControlledComponent />*/}
+//         {/*<UncontrolledComponent />*/}
+//         {/*<DefaultComponent  />*/}
+//         {/*<HelloWorld1 />*/}
+//         {/*<StateExample />*/}
+//         {/*<App />*/}
+//     </Provider>,
+// );
+
+root.render(<RickAndMortyReduxContainer />);
