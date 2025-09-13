@@ -1,0 +1,3 @@
+export const FETCH_RICK_AND_MORTY_CHARACTER = '开始进行API请求';
+export const FETCH_RICK_AND_MORTY_CHARACTER_SUCCESS = 'API请求成功';
+export const FETCH_RICK_AND_MORTY_CHARACTER_FAIL = 'API请求失败';
